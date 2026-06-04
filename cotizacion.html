@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Solicitar cotización — CYD Transporte y Alquiler de Vehículos</title>
+<meta name="description" content="Solicita una cotización a CYD para transporte de personal, alquiler de camionetas, minibuses, autos y soluciones de movilidad para minería, industria y empresa." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="assets/cyd-logo-mark.png" />
+<link rel="apple-touch-icon" href="assets/cyd-logo-mark.png" />
+<link rel="stylesheet" href="assets/cyd.css" />
+</head>
+<body class="has-page-hero">
+
+<header id="site-header"></header>
+<div class="mobile-menu" id="mobile-menu"></div>
+
+<main>
+
+<section class="page-hero">
+  <div class="hero-grid"></div>
+  <div class="speedlines"><span></span><span></span><span></span></div>
+  <div class="container">
+    <div class="inner">
+      <div class="crumbs"><a href="index.html">Inicio</a><span class="sep">/</span><span>Solicitar cotización</span></div>
+      <h1 class="display">Solicita tu <span class="accent">cotización</span></h1>
+      <p class="lead">Cuéntanos sobre tu operación y preparamos una propuesta a la medida. Respuesta ágil, atención 24/7.</p>
+    </div>
+  </div>
+</section>
+
+<section class="section-pad">
+  <div class="container">
+    <div class="contact-grid">
+      <!-- FORM -->
+      <div class="reveal">
+        <form class="form-card" id="quote-form" novalidate>
+          <div class="form-success" id="ok">Gracias. Tu solicitud de cotización fue recibida. Te contactaremos a la brevedad con una propuesta.</div>
+          <h3 style="font-family:'Barlow Condensed'; font-weight:700; text-transform:uppercase; font-size:1.3rem; margin-bottom:6px">Datos del solicitante</h3>
+          <div class="underline" style="width:46px;height:3px;background:var(--cyan); margin-bottom:24px"></div>
+          <div class="form-row">
+            <div class="field"><label>Nombre <span class="req">*</span></label><input name="nombre" required placeholder="Tu nombre" /></div>
+            <div class="field"><label>Empresa <span class="req">*</span></label><input name="empresa" required placeholder="Nombre de la empresa" /></div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label>Teléfono <span class="req">*</span></label><input name="telefono" required placeholder="Ej. 989 659 113" /></div>
+            <div class="field"><label>Correo</label><input type="email" name="correo" placeholder="tucorreo@empresa.com" /></div>
+          </div>
+
+          <h3 style="font-family:'Barlow Condensed'; font-weight:700; text-transform:uppercase; font-size:1.3rem; margin:30px 0 6px">Detalle del servicio</h3>
+          <div class="underline" style="width:46px;height:3px;background:var(--cyan); margin-bottom:24px"></div>
+          <div class="form-row">
+            <div class="field"><label>Categoría <span class="req">*</span></label>
+              <select name="categoria" id="sel-cat" required>
+                <option value="" disabled selected>Selecciona una categoría</option>
+              </select>
+            </div>
+            <div class="field"><label>Servicio</label>
+              <select name="servicio" id="sel-svc">
+                <option value="" disabled selected>Selecciona un servicio</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="field"><label>Fecha de inicio</label><input type="date" name="fecha" /></div>
+            <div class="field"><label>N.º de pasajeros / unidades</label><input type="number" min="1" name="cantidad" placeholder="Ej. 12" /></div>
+          </div>
+          <div class="field full" style="margin-bottom:22px"><label>Detalle de la operación <span class="req">*</span></label><textarea name="detalle" required placeholder="Origen y destino, frecuencia, horarios, tipo de vehículo, condiciones especiales…"></textarea></div>
+          <button type="submit" class="btn btn-primary" style="width:100%; justify-content:center">Enviar solicitud <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+          <p class="form-note">* Campos obligatorios. Te contactaremos para afinar los detalles de tu propuesta.</p>
+        </form>
+      </div>
+
+      <!-- ASIDE -->
+      <div class="reveal" style="transition-delay:.1s">
+        <span class="eyebrow">Cómo funciona</span>
+        <h2 class="display" style="font-size:clamp(1.9rem,3.6vw,2.6rem); margin-top:14px">Tu propuesta en 3 pasos</h2>
+        <div class="info-list" style="margin-top:24px">
+          <div class="info-item">
+            <div class="ic" style="font-family:'Barlow Condensed'; font-weight:800; color:var(--blue)">01</div>
+            <div class="it"><h4>Cuéntanos tu necesidad</h4><p>Completa el formulario con el detalle de tu operación.</p></div>
+          </div>
+          <div class="info-item">
+            <div class="ic" style="font-family:'Barlow Condensed'; font-weight:800; color:var(--blue)">02</div>
+            <div class="it"><h4>Diseñamos la solución</h4><p>Evaluamos rutas, vehículos y condiciones para una propuesta a tu medida.</p></div>
+          </div>
+          <div class="info-item">
+            <div class="ic" style="font-family:'Barlow Condensed'; font-weight:800; color:var(--blue)">03</div>
+            <div class="it"><h4>Coordinamos y operamos</h4><p>Confirmamos los detalles y ponemos tu operación en movimiento.</p></div>
+          </div>
+        </div>
+        <div style="background:var(--navy); color:#fff; padding:28px 30px; margin-top:30px">
+          <div style="display:flex; align-items:center; gap:10px; font-family:'Barlow Condensed'; text-transform:uppercase; letter-spacing:.14em; font-size:.8rem; color:var(--cyan)"><span style="width:8px;height:8px;border-radius:50%;background:var(--green);display:inline-block"></span> ¿Prefieres llamar?</div>
+          <div style="display:flex; flex-direction:column; gap:6px; margin-top:14px">
+            <a href="tel:989659113" style="font-family:'Barlow Condensed'; font-weight:800; font-size:1.5rem; color:#fff">989 659 113</a>
+            <a href="tel:921341586" style="font-family:'Barlow Condensed'; font-weight:800; font-size:1.5rem; color:#fff">921 341 586</a>
+            <a href="tel:902441534" style="font-family:'Barlow Condensed'; font-weight:800; font-size:1.5rem; color:#fff">902 441 534</a>
+          </div>
+          <p style="color:rgba(255,255,255,0.6); margin-top:14px; font-size:.95rem">Atención las 24 horas, los 7 días de la semana.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="site-footer"></footer>
+
+<script>window.CYD_PAGE = "";</script>
+<script src="assets/image-slot.js"></script>
+<script src="assets/cyd.js"></script>
+<script>
+  // Poblar selects desde CYD_CATS
+  const selCat = document.getElementById('sel-cat');
+  const selSvc = document.getElementById('sel-svc');
+  window.CYD_CATS.forEach(c => {
+    const o = document.createElement('option'); o.value = c.id; o.textContent = c.n + ' · ' + c.short; selCat.appendChild(o);
+  });
+  function fillSvc(catId) {
+    selSvc.innerHTML = '<option value="" disabled selected>Selecciona un servicio</option>';
+    const cat = window.CYD_CATS.find(c => c.id === catId);
+    if (!cat) return;
+    cat.services.forEach(s => { const o = document.createElement('option'); o.value = s.id; o.textContent = s.name; selSvc.appendChild(o); });
+  }
+  selCat.addEventListener('change', () => fillSvc(selCat.value));
+
+  // Preselección por hash (#cat-xxx o #servicio)
+  (function preselect() {
+    const h = (location.hash || '').replace('#', '');
+    if (!h) return;
+    if (h.startsWith('cat-')) { selCat.value = h.slice(4); fillSvc(selCat.value); return; }
+    for (const c of window.CYD_CATS) {
+      const s = c.services.find(x => x.id === h);
+      if (s) { selCat.value = c.id; fillSvc(c.id); selSvc.value = s.id; break; }
+    }
+  })();
+
+  const f = document.getElementById('quote-form');
+  f.addEventListener('submit', (e) => {
+    e.preventDefault();
+    if (!f.checkValidity()) { f.reportValidity(); return; }
+    document.getElementById('ok').classList.add('show');
+    f.querySelectorAll('input,textarea').forEach(el => el.value = '');
+    selCat.selectedIndex = 0; selSvc.selectedIndex = 0;
+  });
+</script>
+</body>
+</html>

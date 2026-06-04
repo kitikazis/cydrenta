@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Servicios — CYD Transporte y Alquiler de Vehículos</title>
+<meta name="description" content="Categorías y servicios de CYD: transporte de personal, alquiler de minibuses y vehículos, y soluciones integrales de movilidad para minería, industria y empresa." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
+<link rel="icon" type="image/png" href="assets/cyd-logo-mark.png" />
+<link rel="apple-touch-icon" href="assets/cyd-logo-mark.png" />
+<link rel="stylesheet" href="assets/cyd.css" />
+</head>
+<body class="has-page-hero">
+
+<header id="site-header"></header>
+<div class="mobile-menu" id="mobile-menu"></div>
+
+<main>
+
+<!-- PAGE HERO -->
+<section class="page-hero">
+  <div class="hero-grid"></div>
+  <div class="speedlines"><span></span><span></span><span></span></div>
+  <div class="container">
+    <div class="inner">
+      <div class="crumbs"><a href="index.html">Inicio</a><span class="sep">/</span><span>Servicios</span></div>
+      <h1 class="display">Nuestros <span class="accent">servicios</span></h1>
+      <p class="lead">Organizamos la movilidad de tu empresa en tres categorías. Cada una agrupa servicios específicos, diseñados para los sectores minero, industrial y ejecutivo.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ÍNDICE DE CATEGORÍAS -->
+<section style="background:var(--surface); border-bottom:1px solid var(--line);">
+  <div class="container">
+    <div id="cat-index" style="display:grid; grid-template-columns:repeat(3,1fr); gap:0;"></div>
+  </div>
+</section>
+
+<!-- SECCIONES POR CATEGORÍA -->
+<div id="cat-sections"></div>
+
+<!-- CTA -->
+<section class="cta-band" style="--band-img:url('https://images.unsplash.com/photo-1755717706420-83d338718475?w=1600&q=80&auto=format&fit=crop')">
+  <div class="container">
+    <div class="cta-band-inner reveal">
+      <div class="cta-band-copy">
+        <span class="eyebrow on-dark">¿No encuentras lo que buscas?</span>
+        <h2 class="display">Armamos una solución a tu medida</h2>
+        <p>Combinamos transporte y alquiler en un servicio personalizado según tu operación. Cuéntanos qué necesitas.</p>
+        <div class="actions">
+          <a href="cotizacion.html" class="btn btn-light">Solicitar cotización <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+          <a href="contacto.html" class="btn btn-ghost on-dark">Contactar</a>
+        </div>
+      </div>
+      <div class="cta-band-aside">
+        <div class="kpi"><span class="k">24/7</span><span class="v">Atención todos los días</span></div>
+        <div class="kpi"><span class="k">3</span><span class="v">Categorías de servicio</span></div>
+        <div class="kpi"><span class="k">100%</span><span class="v">Flota moderna y operativa</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer id="site-footer"></footer>
+
+<script>window.CYD_PAGE = "servicios";</script>
+<script src="assets/image-slot.js"></script>
+<script src="assets/cyd.js"></script>
+<script>
+  const ic = {
+    executive: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M6 34l4-12h28l4 12"/><path d="M3 34h42v6H3z"/><path d="M14 22V12h20v10"/><line x1="24" y1="12" x2="24" y2="22"/><circle cx="13" cy="40" r="2.4"/><circle cx="35" cy="40" r="2.4"/></svg>',
+    site: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M4 40h40"/><path d="M10 40V20l10-8 10 8v20"/><path d="M30 40V26h8v14"/><line x1="16" y1="24" x2="24" y2="24"/><line x1="16" y1="30" x2="24" y2="30"/></svg>',
+    pickup: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M3 32V20h20v12"/><path d="M23 24h9l6 6v2"/><path d="M3 32h42v4H3z"/><circle cx="13" cy="38" r="3"/><circle cx="35" cy="38" r="3"/></svg>',
+    bus: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><rect x="6" y="12" width="36" height="22"/><line x1="6" y1="20" x2="42" y2="20"/><line x1="18" y1="12" x2="18" y2="20"/><line x1="30" y1="12" x2="30" y2="20"/><path d="M6 34v4M42 34v4"/><line x1="13" y1="27" x2="17" y2="27"/><line x1="31" y1="27" x2="35" y2="27"/></svg>',
+    car: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M5 32l3-10h32l3 10"/><path d="M2 32h44v4H2z"/><path d="M13 22l3-6h16l3 6"/><circle cx="13" cy="38" r="2.6"/><circle cx="35" cy="38" r="2.6"/></svg>',
+    mobility: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><circle cx="24" cy="24" r="18"/><path d="M24 6v36M6 24h36"/><path d="M24 6c6 5 6 31 0 36M24 6c-6 5-6 31 0 36"/></svg>',
+  };
+
+  // Detalle por servicio: foto real (src), ícono, descripción y tags
+  const DET = {
+    ejecutivo: {
+      icon: "executive",
+      photo: "https://images.unsplash.com/photo-1628487749130-2d41acb1802a?w=900&q=80&auto=format&fit=crop",
+      desc: "Servicio de traslado seguro, puntual y eficiente para personal operativo, administrativo y ejecutivo, adaptado a los requerimientos de cada cliente y operación.",
+      tags: ["Personal ejecutivo", "Puntualidad", "Rutas a medida"],
+    },
+    proyectos: {
+      icon: "site",
+      photo: "https://images.unsplash.com/photo-1711012604128-8339024a3e12?w=900&q=80&auto=format&fit=crop",
+      desc: "Brindamos servicios de transporte hacia distintas zonas operativas y proyectos industriales, garantizando comodidad, seguridad y continuidad en cada traslado.",
+      tags: ["Zonas operativas", "Proyectos industriales", "Continuidad"],
+    },
+    camionetas: {
+      icon: "pickup",
+      photo: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=900&q=80&auto=format&fit=crop",
+      desc: "Contamos con camionetas abiertas y cerradas, equipadas y en óptimas condiciones para diferentes tipos de operaciones y necesidades empresariales.",
+      tags: ["Abiertas y cerradas", "Equipadas", "Óptimas condiciones"],
+    },
+    buses: {
+      icon: "bus",
+      photo: "https://images.unsplash.com/photo-1534011056808-50c1c6082fe7?w=900&q=80&auto=format&fit=crop",
+      desc: "Servicio de alquiler de minibuses para el traslado de personal a faenas mineras e industriales, con comodidad, capacidad y altos estándares de seguridad.",
+      tags: ["Traslado de personal", "Faena minera", "Seguridad"],
+    },
+    autos: {
+      icon: "car",
+      photo: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=900&q=80&auto=format&fit=crop",
+      desc: "Disponemos de vehículos modernos para servicios corporativos, ejecutivos y de movilidad empresarial, con opciones adaptadas a cada necesidad.",
+      tags: ["Vehículos modernos", "Corporativo", "A medida"],
+    },
+    movilidad: {
+      icon: "mobility",
+      photo: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=900&q=80&auto=format&fit=crop",
+      desc: "Ofrecemos servicios personalizados de transporte y alquiler vehicular, orientados a brindar eficiencia, confianza y soporte operativo a nuestros clientes.",
+      tags: ["Personalizado", "Eficiencia", "Soporte operativo"],
+    },
+  };
+  const intros = {
+    transporte: "Nos encargamos de la logística de llevar a tu personal de un punto a otro, con seguridad y continuidad.",
+    alquiler: "Arrendamos unidades en óptimas condiciones para que tu empresa las utilice según su conveniencia.",
+    soluciones: "Un servicio global de consultoría logística que combina transporte y flota de manera personalizada.",
+  };
+  const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+
+  // Índice superior
+  document.getElementById('cat-index').innerHTML = window.CYD_CATS.map((c, i) => `
+    <a href="#cat-${c.id}" style="padding:26px 28px; border-right:${i < 2 ? '1px solid var(--line)' : '0'}; display:flex; gap:16px; align-items:flex-start; transition:background .2s;">
+      <span style="font-family:'Barlow Condensed'; font-weight:800; font-size:1.1rem; color:var(--blue); letter-spacing:.06em">${c.n}</span>
+      <span>
+        <span style="display:block; font-family:'Barlow Condensed'; font-weight:700; text-transform:uppercase; font-size:1.15rem; color:var(--ink); line-height:1.05">${c.short}</span>
+        <span style="display:block; color:var(--ink-2); font-size:.95rem; margin-top:6px">${c.services.length} servicio${c.services.length > 1 ? 's' : ''}</span>
+      </span>
+    </a>`).join('');
+
+  // Secciones por categoría
+  document.getElementById('cat-sections').innerHTML = window.CYD_CATS.map(c => `
+    <section class="cat-section" id="cat-${c.id}">
+      <div class="container">
+        <div class="head reveal">
+          <span class="bignum">${c.n}</span>
+          <div class="htext">
+            <span class="eyebrow">Categoría ${c.n}</span>
+            <h2 class="display">${c.title}</h2>
+            <div class="ul"></div>
+          </div>
+        </div>
+        <p class="reveal" style="color:var(--ink-2); font-size:1.12rem; max-width:680px; margin:-26px 0 44px">${intros[c.id]}</p>
+        <div class="svc-grid ${c.services.length === 1 ? 'cols-1' : ''}">
+          ${c.services.map((s, i) => `
+            <article class="svc-item reveal" id="${s.id}" style="transition-delay:${(i % 2) * 0.08}s">
+              <div class="ph">
+                <image-slot id="svc-${s.id}" shape="rect" fit="cover" src="${DET[s.id].photo}" placeholder="Foto ${s.name}"></image-slot>
+              </div>
+              <div class="body">
+                <div class="ic">${ic[DET[s.id].icon]}</div>
+                <h3>${s.name}</h3>
+                <p>${DET[s.id].desc}</p>
+                <div class="tags">${DET[s.id].tags.map(t => `<span>${t}</span>`).join('')}</div>
+              </div>
+            </article>`).join('')}
+        </div>
+      </div>
+    </section>`).join('');
+
+  // Re-observa los nuevos .reveal inyectados
+  const hardReveal = (el) => { el.classList.add('in'); el.style.transition = 'none'; el.style.opacity = '1'; el.style.transform = 'none'; };
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.08, rootMargin: "0px 0px -6% 0px" });
+    document.querySelectorAll('#cat-sections .reveal').forEach(el => io.observe(el));
+    setTimeout(() => document.querySelectorAll('#cat-sections .reveal:not(.in)').forEach(hardReveal), 1600);
+    if (document.visibilityState === "hidden") document.querySelectorAll('#cat-sections .reveal').forEach(hardReveal);
+  } else {
+    document.querySelectorAll('#cat-sections .reveal').forEach(hardReveal);
+  }
+</script>
+</body>
+</html>
