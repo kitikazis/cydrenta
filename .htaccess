@@ -1,0 +1,37 @@
+# ===========================================================
+#  Control de cache - CYD
+#  Las paginas HTML nunca se cachean (siempre ven la version
+#  nueva y sus referencias ?v=). Los assets se cachean fuerte
+#  pero el ?v= cambia cuando los actualizas, asi que se
+#  refrescan al instante. El visitante siempre ve lo ultimo.
+# ===========================================================
+
+<IfModule mod_headers.c>
+
+  # --- HTML: nunca cachear ---
+  <FilesMatch "\.(html|htm)$">
+    Header set Cache-Control "no-cache, no-store, must-revalidate"
+    Header set Pragma "no-cache"
+    Header set Expires "0"
+  </FilesMatch>
+
+  # --- CSS / JS / imagenes / fuentes: cache largo (1 ano) ---
+  # Se refrescan via ?v=<hash> cuando cambian.
+  <FilesMatch "\.(css|js|png|jpe?g|gif|svg|webp|ico|woff2?|ttf|eot|pdf)$">
+    Header set Cache-Control "public, max-age=31536000, immutable"
+  </FilesMatch>
+
+</IfModule>
+
+# Respaldo por si mod_headers no esta disponible
+<IfModule mod_expires.c>
+  ExpiresActive On
+  ExpiresByType text/html "access plus 0 seconds"
+  ExpiresByType text/css "access plus 1 year"
+  ExpiresByType application/javascript "access plus 1 year"
+  ExpiresByType image/png "access plus 1 year"
+  ExpiresByType image/jpeg "access plus 1 year"
+  ExpiresByType image/svg+xml "access plus 1 year"
+  ExpiresByType image/webp "access plus 1 year"
+  ExpiresByType application/pdf "access plus 1 year"
+</IfModule>
