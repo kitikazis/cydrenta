@@ -4,7 +4,7 @@
    Cada página define window.CYD_PAGE = 'inicio' | 'nosotros' | ...
 ============================================================ */
 (function () {
-  const PHONES = ["989 659 113", "921 341 586", "902 441 534"];
+  const PHONES = ["989 659 113", "921 341 586", "902 441 534", "942 894 250"];
   const tel = (p) => "tel:" + p.replace(/\s/g, "");
 
   // Categorías y servicios (fuente única de verdad)
