@@ -1,130 +1,205 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="es">
-<head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>CYD — Transporte y Alquiler de Vehículos</title>
-<meta name="description" content="CYD — Transporte de personal y alquiler de minibuses y vehículos para los sectores minero, industrial y ejecutivo. Disponibilidad 24/7." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
-<link rel="icon" type="image/png" href="assets/cyd-logo-mark.png" />
-<link rel="apple-touch-icon" href="assets/cyd-logo-mark.png" />
-<link rel="stylesheet" href="assets/cyd.css?v=6e6c22d4" />
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CYD — Transporte y Alquiler de Vehículos</title>
+    <meta
+      name="description"
+      content="CYD — Transporte de personal y alquiler de minibuses y vehículos para los sectores minero, industrial y ejecutivo. Disponibilidad 24/7."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@300;400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="icon" type="image/png" href="assets/cyd-logo-mark.png" />
+    <link rel="apple-touch-icon" href="assets/cyd-logo-mark.png" />
+    <link rel="stylesheet" href="assets/cyd.css?v=6e6c22d4" />
+  </head>
+  <body>
+    <header id="site-header"></header>
+    <div class="mobile-menu" id="mobile-menu"></div>
 
-<header id="site-header"></header>
-<div class="mobile-menu" id="mobile-menu"></div>
-
-<main>
-
-<!-- HERO -->
-<section class="home-hero">
-  <div class="hero-grid"></div>
-  <div class="container">
-    <div class="grid">
-      <div class="copy">
-        <span class="eyebrow reveal">Transporte de Personal &middot; Sector Minero</span>
-        <h1 class="display reveal" style="transition-delay:.06s">Transporte que<br>no se <span class="accent">detiene</span>.</h1>
-        <p class="sub reveal" style="transition-delay:.12s">Alquiler de minibuses y vehículos para el traslado de personal en los sectores minero, industrial y ejecutivo. Seguros, puntuales y disponibles cuando tu faena lo exige.</p>
-        <div class="actions reveal" style="transition-delay:.18s">
-          <a href="cotizacion.html" class="btn btn-primary">Solicitar cotización <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a href="servicios.html" class="btn btn-ghost">Ver servicios</a>
-        </div>
-        <div class="contacts reveal" style="transition-delay:.24s">
-          <span class="lab"><span class="dot"></span>Atención 24/7</span>
-          <div class="nums">
-            <a href="tel:989659113">989 659 113</a>
-            <a href="tel:921341586">921 341 586</a>
-            <a href="tel:902441534">902 441 534</a>
+    <main>
+      <!-- HERO -->
+      <section class="home-hero">
+        <div class="hero-grid"></div>
+        <div class="container">
+          <div class="grid">
+            <div class="copy">
+              <span class="eyebrow reveal"
+                >Transporte de Personal &middot; Sector Minero</span
+              >
+              <h1 class="display reveal" style="transition-delay: 0.06s">
+                Transporte que<br />no se <span class="accent">detiene</span>.
+              </h1>
+              <p class="sub reveal" style="transition-delay: 0.12s">
+                Alquiler de minibuses y vehículos para el traslado de personal
+                en los sectores minero, industrial y ejecutivo. Seguros,
+                puntuales y disponibles.
+              </p>
+              <div class="actions reveal" style="transition-delay: 0.18s">
+                <a href="cotizacion.html" class="btn btn-primary"
+                  >Solicitar cotización
+                  <svg
+                    class="arrow"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M5 12h14M13 6l6 6-6 6" /></svg
+                ></a>
+                <a href="servicios.html" class="btn btn-ghost">Ver servicios</a>
+              </div>
+              <div class="contacts reveal" style="transition-delay: 0.24s">
+                <span class="lab"><span class="dot"></span>Atención 24/7</span>
+                <div class="nums">
+                  <a href="tel:989659113">989 659 113</a>
+                  <a href="tel:921341586">921 341 586</a>
+                  <a href="tel:902441534">902 441 534</a>
+                </div>
+              </div>
+            </div>
+            <div class="media-frame reveal" style="transition-delay: 0.1s">
+              <div class="speedlines">
+                <span></span><span></span><span></span>
+              </div>
+              <image-slot
+                id="home-hero"
+                style="height: 480px"
+                shape="rect"
+                fit="cover"
+                src="https://images.unsplash.com/photo-1628487749130-2d41acb1802a?w=1100&q=80&auto=format&fit=crop"
+                placeholder="Arrastra una foto de tu operación"
+              ></image-slot>
+              <div class="media-tag">
+                <span class="dot"></span>Operación minera · 24/7
+              </div>
+              <div class="corner"></div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="media-frame reveal" style="transition-delay:.1s">
-        <div class="speedlines"><span></span><span></span><span></span></div>
-        <image-slot id="home-hero" style="height:480px" shape="rect" fit="cover"
-          src="https://images.unsplash.com/photo-1628487749130-2d41acb1802a?w=1100&q=80&auto=format&fit=crop"
-          placeholder="Arrastra una foto de tu operación"></image-slot>
-        <div class="media-tag"><span class="dot"></span>Operación minera · 24/7</div>
-        <div class="corner"></div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-<!-- CATEGORÍAS -->
-<section class="section-pad" id="categorias">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow">Qué hacemos</span>
-      <h2 class="display">Tres frentes, una sola operación</h2>
-      <div class="underline"></div>
-      <p>Organizamos nuestros servicios en tres categorías para cubrir cada necesidad de movilidad de tu empresa, de principio a fin.</p>
-    </div>
-    <div class="cat-grid" id="cat-grid"></div>
-  </div>
-</section>
-
-<!-- POR QUÉ -->
-<section class="band-navy section-pad" id="porque" style="--band-img:url('https://images.unsplash.com/photo-1711012604128-8339024a3e12?w=1600&q=80&auto=format&fit=crop')">
-  <div class="container">
-    <div class="section-head reveal">
-      <span class="eyebrow on-dark">¿Por qué elegirnos?</span>
-      <h2 class="display">Confiabilidad operacional, comprobada</h2>
-      <div class="underline"></div>
-    </div>
-    <div class="dif-grid" id="dif-grid"></div>
-  </div>
-</section>
-
-<!-- CTA -->
-<section class="cta-band" style="--band-img:url('https://images.unsplash.com/photo-1755717706420-83d338718475?w=1600&q=80&auto=format&fit=crop')">
-  <div class="container">
-    <div class="cta-band-inner reveal">
-      <div class="cta-band-copy">
-        <span class="eyebrow on-dark">Coordinemos tu operación</span>
-        <h2 class="display">¿Listo para mover tu operación?</h2>
-        <p>Cuéntanos qué necesitas y preparamos una propuesta a la medida. Atención los 7 días, las 24 horas.</p>
-        <div class="actions">
-          <a href="cotizacion.html" class="btn btn-light">Solicitar cotización <svg class="arrow" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
-          <a href="tel:989659113" class="btn btn-ghost on-dark">Llamar ahora</a>
+      <!-- CATEGORÍAS -->
+      <section class="section-pad" id="categorias">
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow">Qué hacemos</span>
+            <h2 class="display">Tres frentes, una sola operación</h2>
+            <div class="underline"></div>
+            <p>
+              Organizamos nuestros servicios en tres categorías para cubrir cada
+              necesidad de movilidad de tu empresa, de principio a fin.
+            </p>
+          </div>
+          <div class="cat-grid" id="cat-grid"></div>
         </div>
-      </div>
-      <div class="cta-band-aside">
-        <div class="kpi"><span class="k">24/7</span><span class="v">Disponibilidad operativa</span></div>
-        <div class="kpi"><span class="k">3</span><span class="v">Líneas directas de atención</span></div>
-        <div class="kpi"><span class="k">B2B</span><span class="v">Minero · Industrial · Ejecutivo</span></div>
-      </div>
-    </div>
-  </div>
-</section>
+      </section>
 
-</main>
+      <!-- POR QUÉ -->
+      <section
+        class="band-navy section-pad"
+        id="porque"
+        style="
+          --band-img: url(&quot;https://images.unsplash.com/photo-1711012604128-8339024a3e12?w=1600&q=80&auto=format&fit=crop&quot;);
+        "
+      >
+        <div class="container">
+          <div class="section-head reveal">
+            <span class="eyebrow on-dark">¿Por qué elegirnos?</span>
+            <h2 class="display">Confiabilidad operacional, comprobada</h2>
+            <div class="underline"></div>
+          </div>
+          <div class="dif-grid" id="dif-grid"></div>
+        </div>
+      </section>
 
-<footer id="site-footer"></footer>
+      <!-- CTA -->
+      <section
+        class="cta-band"
+        style="
+          --band-img: url(&quot;https://images.unsplash.com/photo-1755717706420-83d338718475?w=1600&q=80&auto=format&fit=crop&quot;);
+        "
+      >
+        <div class="container">
+          <div class="cta-band-inner reveal">
+            <div class="cta-band-copy">
+              <span class="eyebrow on-dark">Coordinemos tu operación</span>
+              <h2 class="display">¿Listo para mover tu operación?</h2>
+              <p>
+                Cuéntanos qué necesitas y preparamos una propuesta a la medida.
+                Atención los 7 días, las 24 horas.
+              </p>
+              <div class="actions">
+                <a href="cotizacion.html" class="btn btn-light"
+                  >Solicitar cotización
+                  <svg
+                    class="arrow"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                  >
+                    <path d="M5 12h14M13 6l6 6-6 6" /></svg
+                ></a>
+                <a href="tel:989659113" class="btn btn-ghost on-dark"
+                  >Llamar ahora</a
+                >
+              </div>
+            </div>
+            <div class="cta-band-aside">
+              <div class="kpi">
+                <span class="k">24/7</span
+                ><span class="v">Disponibilidad operativa</span>
+              </div>
+              <div class="kpi">
+                <span class="k">3</span
+                ><span class="v">Líneas directas de atención</span>
+              </div>
+              <div class="kpi">
+                <span class="k">B2B</span
+                ><span class="v">Minero · Industrial · Ejecutivo</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
-<script>window.CYD_PAGE = "inicio";</script>
-<script src="assets/image-slot.js?v=605df3a6"></script>
-<script src="assets/cyd.js?v=b55d38c5"></script>
-<script>
-  // Tarjetas de categoría (usa CYD_CATS de cyd.js)
-  const catMeta = {
-    transporte: {
-      photo: "https://images.unsplash.com/photo-1535655685871-dc8158ff167e?w=900&q=80&auto=format&fit=crop",
-      desc: "Trasladamos a tu personal hacia la faena de forma segura, puntual y continua.",
-    },
-    alquiler: {
-      photo: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=900&q=80&auto=format&fit=crop",
-      desc: "Alquiler de minibuses y unidades en óptimas condiciones para que tu operación opere a su conveniencia.",
-    },
-    soluciones: {
-      photo: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=900&q=80&auto=format&fit=crop",
-      desc: "Consultoría logística que combina transporte y flota en un servicio personalizado de extremo a extremo.",
-    },
-  };
-  const arrow = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
-  document.getElementById('cat-grid').innerHTML = window.CYD_CATS.map((c, i) => `
+    <footer id="site-footer"></footer>
+
+    <script>
+      window.CYD_PAGE = "inicio";
+    </script>
+    <script src="assets/image-slot.js?v=605df3a6"></script>
+    <script src="assets/cyd.js?v=b55d38c5"></script>
+    <script>
+      // Tarjetas de categoría (usa CYD_CATS de cyd.js)
+      const catMeta = {
+        transporte: {
+          photo:
+            "https://images.unsplash.com/photo-1535655685871-dc8158ff167e?w=900&q=80&auto=format&fit=crop",
+          desc: "Trasladamos a tu personal hacia la faena de forma segura, puntual y continua.",
+        },
+        alquiler: {
+          photo:
+            "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=900&q=80&auto=format&fit=crop",
+          desc: "Alquiler de minibuses y unidades en óptimas condiciones para que tu operación opere a su conveniencia.",
+        },
+        soluciones: {
+          photo:
+            "https://images.unsplash.com/photo-1553413077-190dd305871c?w=900&q=80&auto=format&fit=crop",
+          desc: "Consultoría logística que combina transporte y flota en un servicio personalizado de extremo a extremo.",
+        },
+      };
+      const arrow =
+        '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
+      document.getElementById("cat-grid").innerHTML = window.CYD_CATS.map(
+        (c, i) => `
     <a class="cat-card reveal" href="servicios.html#cat-${c.id}" style="transition-delay:${i * 0.08}s">
       <div class="ph">
         <span class="num">${c.n}</span>
@@ -134,23 +209,48 @@
         <h3>${c.title}</h3>
         <div class="ul"></div>
         <p>${catMeta[c.id].desc}</p>
-        <div class="svc">${c.services.map(s => `<span>${s.name}</span>`).join('')}</div>
+        <div class="svc">${c.services.map((s) => `<span>${s.name}</span>`).join("")}</div>
         <span class="more">Ver categoría ${arrow}</span>
       </div>
-    </a>`).join('');
+    </a>`,
+      ).join("");
 
-  const dif = [
-    { num: "24", small: "/7", t: "Disponibilidad total", d: "Atención y soporte operativo las 24 horas, los 7 días de la semana." },
-    { num: "100", small: "%", t: "Flota moderna", d: "Vehículos en óptimas condiciones y constante modernización." },
-    { num: "B2B", small: "", t: "Enfoque sectorial", d: "Especializados en minería, industria y transporte ejecutivo." },
-    { num: "01", small: "", t: "Prioridad: seguridad", d: "Altos estándares de seguridad en cada traslado y operación." },
-  ];
-  document.getElementById('dif-grid').innerHTML = dif.map((d, i) => `
+      const dif = [
+        {
+          num: "24",
+          small: "/7",
+          t: "Disponibilidad total",
+          d: "Atención y soporte operativo las 24 horas, los 7 días de la semana.",
+        },
+        {
+          num: "100",
+          small: "%",
+          t: "Flota moderna",
+          d: "Vehículos en óptimas condiciones y constante modernización.",
+        },
+        {
+          num: "B2B",
+          small: "",
+          t: "Enfoque sectorial",
+          d: "Especializados en minería, industria y transporte ejecutivo.",
+        },
+        {
+          num: "01",
+          small: "",
+          t: "Prioridad: seguridad",
+          d: "Altos estándares de seguridad en cada traslado y operación.",
+        },
+      ];
+      document.getElementById("dif-grid").innerHTML = dif
+        .map(
+          (d, i) => `
     <div class="dif reveal" style="transition-delay:${i * 0.07}s">
       <div class="num">${d.num}<small>${d.small}</small></div>
       <h3>${d.t}</h3>
       <p>${d.d}</p>
-    </div>`).join('');
-</script>
-</body>
+    </div>`,
+        )
+        .join("");
+    </script>
+  </body>
 </html>
