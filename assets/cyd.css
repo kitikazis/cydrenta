@@ -345,6 +345,10 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 38px; }
 .home-hero .hero-call { display: inline-flex; align-items: center; gap: 8px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--ink); transition: color 0.2s var(--ease); }
 .home-hero .hero-call svg { width: 18px; height: 18px; color: var(--blue); }
 .home-hero .hero-call:hover { color: var(--blue); }
+.home-hero .hero-nums { display: flex; flex-wrap: wrap; gap: 9px 10px; }
+.home-hero .hero-nums a { display: inline-flex; align-items: center; gap: 8px; border: 1.5px solid var(--line); padding: 9px 15px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.1rem; letter-spacing: 0.02em; color: var(--ink); transition: border-color 0.2s var(--ease), color 0.2s var(--ease), background 0.2s var(--ease); }
+.home-hero .hero-nums a svg { width: 15px; height: 15px; color: var(--blue); }
+.home-hero .hero-nums a:hover { border-color: var(--blue); color: var(--blue); background: rgba(16,67,128,0.05); }
 
 /* ---------- CTA band (claro) ---------- */
 .cta-split { display: grid; grid-template-columns: 1.2fr auto; gap: 40px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--blue); padding: 50px 48px; }
