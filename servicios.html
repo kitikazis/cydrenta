@@ -10,7 +10,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
 <link rel="icon" type="image/png" href="assets/cyd-logo-mark.png" />
 <link rel="apple-touch-icon" href="assets/cyd-logo-mark.png" />
-<link rel="stylesheet" href="assets/cyd.css?v=6e6c22d4" />
+<link rel="stylesheet" href="assets/cyd.css?v=75efc195" />
 </head>
 <body class="has-page-hero">
 
@@ -70,7 +70,7 @@
 
 <script>window.CYD_PAGE = "servicios";</script>
 <script src="assets/image-slot.js?v=605df3a6"></script>
-<script src="assets/cyd.js?v=b55d38c5"></script>
+<script src="assets/cyd.js?v=7b2daee9"></script>
 <script>
   const ic = {
     executive: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M6 34l4-12h28l4 12"/><path d="M3 34h42v6H3z"/><path d="M14 22V12h20v10"/><line x1="24" y1="12" x2="24" y2="22"/><circle cx="13" cy="40" r="2.4"/><circle cx="35" cy="40" r="2.4"/></svg>',
@@ -176,6 +176,16 @@
     if (document.visibilityState === "hidden") document.querySelectorAll('#cat-sections .reveal').forEach(hardReveal);
   } else {
     document.querySelectorAll('#cat-sections .reveal').forEach(hardReveal);
+  }
+
+  // Las secciones se generan con JS, así que al llegar con un #hash (p.ej. desde
+  // el mega-menú) el navegador no las encuentra todavía. Saltamos manualmente.
+  if (location.hash) {
+    const goToHash = () => {
+      const t = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+      if (t) t.scrollIntoView({ block: "start" });
+    };
+    requestAnimationFrame(() => requestAnimationFrame(goToHash));
   }
 </script>
 </body>

@@ -255,7 +255,7 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 38px; }
 .cat-card .more svg { width: 15px; height: 15px; }
 
 /* ---------- Service detail blocks (servicios.html) ---------- */
-.cat-section { padding: 96px 0; border-top: 1px solid var(--line); }
+.cat-section { padding: 96px 0; border-top: 1px solid var(--line); scroll-margin-top: 96px; }
 .cat-section:nth-of-type(even) { background: var(--surface); }
 .cat-section .head { display: flex; align-items: flex-end; gap: 24px; margin-bottom: 50px; flex-wrap: wrap; }
 .cat-section .head .bignum { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(3.5rem, 7vw, 6rem); line-height: 0.8; color: var(--bg-3); -webkit-text-stroke: 0; }
@@ -462,3 +462,26 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 38px; }
   .cta-band-aside .kpi { flex-direction: column; gap: 4px; }
   .cta-band-aside .kpi .k { min-width: 0; }
 }
+
+/* Botón flotante de WhatsApp ──────────────────────────── */
+#wa-float {
+  position: fixed; right: 22px; bottom: 22px; z-index: 300;
+  width: 60px; height: 60px; border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: #25D366; color: #fff;
+  box-shadow: 0 12px 28px -8px rgba(37,211,102,0.7), 0 4px 10px rgba(0,0,0,0.18);
+  transition: transform 0.2s var(--ease), box-shadow 0.2s var(--ease);
+  animation: waPulse 2.6s ease-out infinite;
+}
+#wa-float svg { width: 34px; height: 34px; }
+#wa-float:hover { transform: scale(1.08); box-shadow: 0 16px 34px -8px rgba(37,211,102,0.85), 0 6px 14px rgba(0,0,0,0.22); }
+@keyframes waPulse {
+  0% { box-shadow: 0 12px 28px -8px rgba(37,211,102,0.7), 0 0 0 0 rgba(37,211,102,0.5); }
+  70% { box-shadow: 0 12px 28px -8px rgba(37,211,102,0.7), 0 0 0 16px rgba(37,211,102,0); }
+  100% { box-shadow: 0 12px 28px -8px rgba(37,211,102,0.7), 0 0 0 0 rgba(37,211,102,0); }
+}
+@media (max-width: 480px) {
+  #wa-float { right: 16px; bottom: 16px; width: 54px; height: 54px; }
+  #wa-float svg { width: 30px; height: 30px; }
+}
+@media (prefers-reduced-motion: reduce) { #wa-float { animation: none; } }
