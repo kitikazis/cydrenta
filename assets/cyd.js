@@ -56,11 +56,11 @@
   /* ---------- Mega-menú markup ---------- */
   function megaHTML() {
     const cats = CATS.map((c, i) => `
-      <div class="mega-cat${i === 0 ? " active" : ""}" data-cat="${c.id}">
+      <a class="mega-cat${i === 0 ? " active" : ""}" data-cat="${c.id}" href="servicios.html#cat-${c.id}">
         <span class="cn">${c.n}</span>
         <span class="ct">${c.short}</span>
         <svg class="ca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
-      </div>`).join("");
+      </a>`).join("");
     const panels = CATS.map((c, i) => `
       <div class="mega-panel${i === 0 ? " active" : ""}" data-panel="${c.id}">
         <h4>${c.title}</h4>
