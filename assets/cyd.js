@@ -176,13 +176,19 @@
       cat.addEventListener("click", activate);
     });
 
-    // Mega-menú: abrir con clic/tap en el enlace padre (táctil o sin hover)
+    // ¿El dispositivo tiene ratón (puede hacer hover) o es táctil?
+    const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+    // Mega-menú: abrir con clic/tap en el enlace padre.
+    // En escritorio (con ratón) el menú ya se abre solo con hover, así que el
+    // clic en "Servicios" navega normal a la página. En táctil el 1.er toque
+    // abre el menú y el 2.º navega.
     document.querySelectorAll(".nav-item").forEach(item => {
       if (!item.querySelector(".mega")) return;
       const link = item.querySelector(":scope > a");
       if (!link) return;
       link.addEventListener("click", (e) => {
-        // 1.er toque: abre el mega-menú en vez de navegar; 2.º toque: navega.
+        if (canHover) return; // escritorio: dejar que el clic navegue
         if (!item.classList.contains("open")) {
           e.preventDefault();
           document.querySelectorAll(".nav-item.open").forEach(i => { if (i !== item) i.classList.remove("open"); });
