@@ -23,7 +23,7 @@ bust () {
   # Escapa caracteres especiales de regex en la ruta del asset
   esc="$(printf '%s' "$asset" | sed 's/[.[\*^$]/\\&/g')"
 
-  for html in *.html; do
+  for html in *.html partials/*.html; do
     [ -f "$html" ] || continue
     # Reemplaza  href/src="ruta"  o  href/src="ruta?v=viejo"  por  ...?v=hash
     sed -i -E "s#((href|src)=\"${esc})(\?v=[0-9a-f]+)?\"#\1?v=${hash}\"#g" "$html"
@@ -38,4 +38,4 @@ for f in assets/*.css assets/*.js; do
 done
 
 # Re-agrega los HTML modificados al commit en curso
-git add -- *.html 2>/dev/null || true
+git add -- *.html partials/*.html 2>/dev/null || true

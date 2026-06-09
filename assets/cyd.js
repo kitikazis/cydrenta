@@ -148,6 +148,34 @@
       </div>`;
   }
 
+  /* ---------- Reveal on scroll (reutilizable) ----------
+     Animación de aparición. Reutilizable desde las páginas que inyectan
+     contenido con JS (p.ej. servicios.html) vía window.CYD.observeReveals(scope).
+     Red de seguridad: si el contexto no pinta (pestaña oculta), fuerza el estado final. */
+  let revealIO = null;
+  const revealAll = (scope) => (scope || document).querySelectorAll(".reveal:not(.in)").forEach(el => {
+    el.classList.add("in");
+    el.style.transition = "none";
+    el.style.opacity = "1";
+    el.style.transform = "none";
+  });
+  const observeReveals = (scope) => {
+    const root = scope || document;
+    if (!("IntersectionObserver" in window)) { revealAll(root); return; }
+    if (!revealIO) {
+      revealIO = new IntersectionObserver((entries) => {
+        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); revealIO.unobserve(e.target); } });
+      }, { threshold: 0.1, rootMargin: "0px 0px -7% 0px" });
+    }
+    root.querySelectorAll(".reveal:not(.in)").forEach(el => revealIO.observe(el));
+    setTimeout(() => revealAll(root), 1600);
+    if (document.visibilityState === "hidden") revealAll(root);
+  };
+  window.CYD = window.CYD || {};
+  window.CYD.observeReveals = observeReveals;
+  window.CYD.revealAll = revealAll;
+  window.CYD_revealAll = revealAll; // compatibilidad
+
   /* ---------- Mount ---------- */
   function mount() {
     const header = document.getElementById("site-header");
@@ -250,25 +278,8 @@
       window.addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
     }
 
-    // Reveal on scroll (con red de seguridad robusta)
-    // Si el contexto no pinta (pestaña oculta, herramientas de captura),
-    // la transición de opacidad nunca avanza: forzamos el estado final.
-    const revealAll = () => document.querySelectorAll(".reveal:not(.in)").forEach(el => {
-      el.classList.add("in");
-      el.style.transition = "none";
-      el.style.opacity = "1";
-      el.style.transform = "none";
-    });
-    if ("IntersectionObserver" in window) {
-      const io = new IntersectionObserver((entries) => {
-        entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
-      }, { threshold: 0.1, rootMargin: "0px 0px -7% 0px" });
-      document.querySelectorAll(".reveal").forEach(el => io.observe(el));
-      setTimeout(revealAll, 1600);
-      // Si la página se renderiza en un contexto que no pinta (oculto), fuerza el estado final.
-      if (document.visibilityState === "hidden") revealAll();
-    } else { revealAll(); }
-    window.CYD_revealAll = revealAll;
+    // Reveal on scroll (helper compartido, ver arriba)
+    observeReveals();
   }
 
   if (document.readyState === "loading") document.addEventListener("DOMContentLoaded", mount);

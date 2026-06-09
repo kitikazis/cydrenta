@@ -1,22 +1,9 @@
 <!doctype html>
 <html lang="es">
   <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>CYD — Transporte y Alquiler de Vehículos</title>
-    <meta
-      name="description"
-      content="CYD — Transporte de personal y alquiler de minibuses y vehículos para los sectores minero, industrial y ejecutivo. Disponibilidad 24/7."
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="icon" type="image/png" href="assets/cyd-logo-mark.png" />
-    <link rel="apple-touch-icon" href="assets/cyd-logo-mark.png" />
-    <link rel="stylesheet" href="assets/cyd.css?v=75efc195" />
+    <!--#set var="page_title" value="CYD — Transporte y Alquiler de Vehículos" -->
+    <!--#set var="page_desc" value="CYD — Transporte de personal y alquiler de minibuses y vehículos para los sectores minero, industrial y ejecutivo. Disponibilidad 24/7." -->
+    <!--#include virtual="partials/head.html" -->
   </head>
   <body>
     <header id="site-header"></header>
@@ -175,8 +162,7 @@
     <script>
       window.CYD_PAGE = "inicio";
     </script>
-    <script src="assets/image-slot.js?v=605df3a6"></script>
-    <script src="assets/cyd.js?v=090143f9"></script>
+    <!--#include virtual="partials/scripts.html" -->
     <script>
       // Tarjetas de categoría (usa CYD_CATS de cyd.js)
       const catMeta = {

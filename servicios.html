@@ -1,16 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Servicios — CYD Transporte y Alquiler de Vehículos</title>
-<meta name="description" content="Categorías y servicios de CYD: transporte de personal, alquiler de minibuses y vehículos, y soluciones integrales de movilidad para minería, industria y empresa." />
-<link rel="preconnect" href="https://fonts.googleapis.com" />
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Barlow:wght@300;400;500;600&display=swap" rel="stylesheet" />
-<link rel="icon" type="image/png" href="assets/cyd-logo-mark.png" />
-<link rel="apple-touch-icon" href="assets/cyd-logo-mark.png" />
-<link rel="stylesheet" href="assets/cyd.css?v=75efc195" />
+<!--#set var="page_title" value="Servicios — CYD Transporte y Alquiler de Vehículos" -->
+<!--#set var="page_desc" value="Categorías y servicios de CYD: transporte de personal, alquiler de minibuses y vehículos, y soluciones integrales de movilidad para minería, industria y empresa." -->
+<!--#include virtual="partials/head.html" -->
 </head>
 <body class="has-page-hero">
 
@@ -69,8 +62,7 @@
 <footer id="site-footer"></footer>
 
 <script>window.CYD_PAGE = "servicios";</script>
-<script src="assets/image-slot.js?v=605df3a6"></script>
-<script src="assets/cyd.js?v=090143f9"></script>
+<!--#include virtual="partials/scripts.html" -->
 <script>
   const ic = {
     executive: '<svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"><path d="M6 34l4-12h28l4 12"/><path d="M3 34h42v6H3z"/><path d="M14 22V12h20v10"/><line x1="24" y1="12" x2="24" y2="22"/><circle cx="13" cy="40" r="2.4"/><circle cx="35" cy="40" r="2.4"/></svg>',
@@ -167,16 +159,8 @@
       </div>
     </section>`).join('');
 
-  // Re-observa los nuevos .reveal inyectados
-  const hardReveal = (el) => { el.classList.add('in'); el.style.transition = 'none'; el.style.opacity = '1'; el.style.transform = 'none'; };
-  if ("IntersectionObserver" in window) {
-    const io = new IntersectionObserver((es) => es.forEach(e => { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }), { threshold: 0.08, rootMargin: "0px 0px -6% 0px" });
-    document.querySelectorAll('#cat-sections .reveal').forEach(el => io.observe(el));
-    setTimeout(() => document.querySelectorAll('#cat-sections .reveal:not(.in)').forEach(hardReveal), 1600);
-    if (document.visibilityState === "hidden") document.querySelectorAll('#cat-sections .reveal').forEach(hardReveal);
-  } else {
-    document.querySelectorAll('#cat-sections .reveal').forEach(hardReveal);
-  }
+  // Re-observa los nuevos .reveal inyectados (helper compartido de cyd.js)
+  window.CYD.observeReveals(document.getElementById('cat-sections'));
 
   // Las secciones se generan con JS, así que al llegar con un #hash (p.ej. desde
   // el mega-menú) el navegador no las encuentra todavía. Saltamos manualmente.
