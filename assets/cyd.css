@@ -149,15 +149,31 @@ header.scrolled, header.solid { background: rgba(255,255,255,0.94); backdrop-fil
 .mega-panel a:hover::before { width: 16px; }
 
 /* ---------- Mobile menu ---------- */
-.mobile-menu { position: fixed; inset: 84px 0 0 0; background: #fff; z-index: 190; transform: translateX(100%); transition: transform 0.35s var(--ease); padding: 14px 24px 40px; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
+.mobile-menu { position: fixed; inset: 84px 0 0 0; background: #fff; z-index: 190; transform: translateX(100%); transition: transform 0.35s var(--ease); padding: 26px 24px 40px; overflow-y: auto; -webkit-overflow-scrolling: touch; overscroll-behavior: contain; }
 .mobile-menu.open { transform: translateX(0); }
-.mobile-menu > a:not(.btn), .mm-cat-head { display: block; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 1.3rem; padding: 16px 0; border-bottom: 1px solid var(--line); color: var(--ink); }
-.mm-group { border-bottom: 1px solid var(--line); padding: 12px 0; }
-.mm-group .mm-cat-head { border: 0; padding: 10px 0; color: var(--blue); font-size: 1.05rem; letter-spacing: 0.08em; }
-.mm-group a { display: block; padding: 11px 0 11px 16px; color: var(--ink-2); font-size: 1.05rem; }
-.mm-group a:active { color: var(--blue); }
+/* Ítems de primer nivel (Inicio, Nosotros, Contacto) y cabecera de acordeón */
+.mobile-menu > .mm-link, .mm-acc-head { display: flex; align-items: center; justify-content: space-between; width: 100%; font-family: 'Barlow Condensed', sans-serif; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; font-size: 1.3rem; padding: 17px 0; border-bottom: 1px solid var(--line); color: var(--ink); background: none; border-left: 0; border-right: 0; border-top: 0; cursor: pointer; }
+.mobile-menu > .mm-link.active, .mm-acc-head.active { color: var(--blue); }
+.mm-acc-head .chev { width: 18px; height: 18px; color: var(--ink-3); transition: transform 0.3s var(--ease); }
+.mm-acc.open .mm-acc-head { color: var(--blue); }
+.mm-acc.open .mm-acc-head .chev { transform: rotate(180deg); color: var(--blue); }
+/* Cuerpo colapsable del acordeón */
+.mm-acc-body { max-height: 0; overflow: hidden; transition: max-height 0.32s var(--ease); }
+.mm-all { display: block; padding: 14px 0 8px; color: var(--blue); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: 0.95rem; }
+.mm-cat-head { display: block; padding: 12px 0 6px; color: var(--blue); font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 1rem; }
+.mm-svc { display: block; padding: 10px 0 10px 16px; color: var(--ink-2); font-size: 1.05rem; }
+.mm-svc:active { color: var(--blue); }
+.mm-acc-body > .mm-cat-head + .mm-svc { border-top: 0; }
 .mobile-menu .btn { display: flex; width: 100%; justify-content: center; margin-top: 26px; border: 0; padding: 17px 24px; }
 .mobile-menu .btn-primary { background: var(--blue); color: #fff; }
+/* Contacto rápido dentro del menú */
+.mm-contact { display: flex; flex-direction: column; gap: 10px; margin-top: 14px; }
+.mm-contact .btn-wa { justify-content: center; padding: 15px; }
+.mm-call { display: inline-flex; align-items: center; justify-content: center; gap: 10px; border: 1.5px solid var(--line-d); padding: 14px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: 1rem; color: var(--ink); }
+.mm-call svg { width: 18px; height: 18px; color: var(--blue); }
+.mm-call:active { border-color: var(--blue); color: var(--blue); }
+/* Ocultar WhatsApp flotante mientras el menú móvil está abierto */
+body.menu-open #wa-float { opacity: 0; visibility: hidden; pointer-events: none; }
 
 /* Hamburguesa → X */
 .nav-toggle span { transition: transform 0.28s var(--ease), opacity 0.2s var(--ease); transform-origin: center; }

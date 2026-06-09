@@ -52,6 +52,9 @@
   const page = window.CYD_PAGE || "";
   const chev = '<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4"><path d="M6 9l6 6 6-6"/></svg>';
   const arrowR = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>';
+  const phoneSVG = '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.69 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.33 1.85.56 2.81.69A2 2 0 0 1 22 16.92z"/></svg>';
+  const waSVG = '<svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.04 4C9.93 4 4.98 8.95 4.98 15.06c0 2.05.56 4.05 1.62 5.8L4.8 27.2l6.5-1.7a11 11 0 0 0 4.74 1.08h.01c6.1 0 11.06-4.95 11.06-11.06C27.11 8.95 22.15 4 16.04 4Zm0 20.2a9.1 9.1 0 0 1-4.64-1.27l-.33-.2-3.86 1.01 1.03-3.76-.22-.39a9.06 9.06 0 0 1-1.39-4.83c0-5.04 4.1-9.14 9.15-9.14 2.44 0 4.74.95 6.46 2.68a9.08 9.08 0 0 1 2.68 6.47c0 5.05-4.1 9.15-9.13 9.15Zm5.02-6.85c-.27-.14-1.62-.8-1.87-.89-.25-.09-.43-.14-.62.14-.18.27-.71.89-.87 1.07-.16.18-.32.2-.59.07-.27-.14-1.16-.43-2.2-1.36-.81-.72-1.36-1.62-1.52-1.89-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29s.98 2.66 1.12 2.84c.14.18 1.93 2.95 4.68 4.13.65.28 1.16.45 1.56.58.66.21 1.25.18 1.72.11.52-.08 1.62-.66 1.85-1.3.23-.64.23-1.18.16-1.3-.07-.11-.25-.18-.52-.32Z"/></svg>';
+  const waLink = (raw) => `https://wa.me/51${raw.replace(/\D/g, "")}?text=Hola%20CYD%2C%20quisiera%20informaci%C3%B3n%20sobre%20sus%20servicios.`;
 
   /* ---------- Mega-menú markup ---------- */
   function megaHTML() {
@@ -95,17 +98,31 @@
   /* ---------- Mobile menu ---------- */
   function mobileHTML() {
     const groups = NAV.map(n => {
+      const active = n.key === page ? " active" : "";
       if (n.mega) {
         const cats = CATS.map(c => `
-          <div class="mm-group">
-            <a class="mm-cat-head" href="servicios.html#cat-${c.id}">${c.n} · ${c.short}</a>
-            ${c.services.map(s => `<a href="servicios.html#${s.id}">${s.name}</a>`).join("")}
-          </div>`).join("");
-        return `<a href="${n.href}">${n.label}</a>${cats}`;
+          <a class="mm-cat-head" href="servicios.html#cat-${c.id}">${c.n} · ${c.short}</a>
+          ${c.services.map(s => `<a class="mm-svc" href="servicios.html#${s.id}">${s.name}</a>`).join("")}`).join("");
+        const open = n.key === page ? " open" : "";
+        return `
+          <div class="mm-acc${open}">
+            <button class="mm-acc-head${active}" type="button" aria-expanded="${open ? "true" : "false"}">
+              <span>${n.label}</span>${chev}
+            </button>
+            <div class="mm-acc-body">
+              <a class="mm-all" href="${n.href}">Ver todos los servicios</a>
+              ${cats}
+            </div>
+          </div>`;
       }
-      return `<a href="${n.href}">${n.label}</a>`;
+      return `<a class="mm-link${active}" href="${n.href}">${n.label}</a>`;
     }).join("");
-    return `${groups}<a href="cotizacion.html" class="btn btn-primary">Solicitar cotización</a>`;
+    const contact = `
+      <div class="mm-contact">
+        <a class="btn-wa" href="${waLink(PHONES[0])}" target="_blank" rel="noopener">${waSVG}Escríbete por WhatsApp</a>
+        <a class="mm-call" href="${tel(PHONES[0])}">${phoneSVG}Llamar ${PHONES[0]}</a>
+      </div>`;
+    return `${groups}<a href="cotizacion.html" class="btn btn-primary">Solicitar cotización</a>${contact}`;
   }
 
   /* ---------- Footer ---------- */
@@ -187,15 +204,13 @@
 
     // Botón flotante de WhatsApp (todas las páginas)
     if (!document.getElementById("wa-float")) {
-      const waNum = "51" + PHONES[0].replace(/\D/g, ""); // +51 (Perú) + número
-      const waMsg = encodeURIComponent("Hola CYD, quisiera más información sobre sus servicios.");
       const wa = document.createElement("a");
       wa.id = "wa-float";
-      wa.href = `https://wa.me/${waNum}?text=${waMsg}`;
+      wa.href = waLink(PHONES[0]);
       wa.target = "_blank";
       wa.rel = "noopener";
       wa.setAttribute("aria-label", "Escríbenos por WhatsApp");
-      wa.innerHTML = `<svg viewBox="0 0 32 32" fill="currentColor" aria-hidden="true"><path d="M16.04 4C9.93 4 4.98 8.95 4.98 15.06c0 2.05.56 4.05 1.62 5.8L4.8 27.2l6.5-1.7a11 11 0 0 0 4.74 1.08h.01c6.1 0 11.06-4.95 11.06-11.06C27.11 8.95 22.15 4 16.04 4Zm0 20.2a9.1 9.1 0 0 1-4.64-1.27l-.33-.2-3.86 1.01 1.03-3.76-.22-.39a9.06 9.06 0 0 1-1.39-4.83c0-5.04 4.1-9.14 9.15-9.14 2.44 0 4.74.95 6.46 2.68a9.08 9.08 0 0 1 2.68 6.47c0 5.05-4.1 9.15-9.13 9.15Zm5.02-6.85c-.27-.14-1.62-.8-1.87-.89-.25-.09-.43-.14-.62.14-.18.27-.71.89-.87 1.07-.16.18-.32.2-.59.07-.27-.14-1.16-.43-2.2-1.36-.81-.72-1.36-1.62-1.52-1.89-.16-.27-.02-.42.12-.55.12-.12.27-.32.41-.48.14-.16.18-.27.27-.46.09-.18.05-.34-.02-.48-.07-.14-.62-1.49-.85-2.04-.22-.53-.45-.46-.62-.47l-.53-.01c-.18 0-.48.07-.73.34-.25.27-.96.94-.96 2.29s.98 2.66 1.12 2.84c.14.18 1.93 2.95 4.68 4.13.65.28 1.16.45 1.56.58.66.21 1.25.18 1.72.11.52-.08 1.62-.66 1.85-1.3.23-.64.23-1.18.16-1.3-.07-.11-.25-.18-.52-.32Z"/></svg>`;
+      wa.innerHTML = waSVG;
       document.body.appendChild(wa);
     }
 
@@ -271,11 +286,29 @@
         toggle.classList.toggle("open", open);
         toggle.setAttribute("aria-expanded", open ? "true" : "false");
         if (header) header.classList.toggle("solid", open || window.scrollY > 30 || document.body.classList.contains("has-page-hero"));
+        document.body.classList.toggle("menu-open", open); // oculta el WhatsApp flotante
         document.body.style.overflow = open ? "hidden" : "";
+        // recalcula la altura de acordeones abiertos (fuentes ya cargadas)
+        if (open) mm.querySelectorAll(".mm-acc.open .mm-acc-body").forEach(b => { b.style.maxHeight = b.scrollHeight + "px"; });
       };
       toggle.addEventListener("click", () => setMenu(!mm.classList.contains("open")));
       mm.querySelectorAll("a").forEach(a => a.addEventListener("click", () => setMenu(false)));
       window.addEventListener("keydown", (e) => { if (e.key === "Escape") setMenu(false); });
+    }
+
+    // Acordeón del menú móvil (Servicios se despliega al tocar)
+    if (mm) {
+      const setBody = (acc, open) => {
+        const body = acc.querySelector(".mm-acc-body");
+        acc.classList.toggle("open", open);
+        acc.querySelector(".mm-acc-head").setAttribute("aria-expanded", open ? "true" : "false");
+        body.style.maxHeight = open ? body.scrollHeight + "px" : "0";
+      };
+      mm.querySelectorAll(".mm-acc-head").forEach(head => {
+        head.addEventListener("click", () => setBody(head.closest(".mm-acc"), !head.closest(".mm-acc").classList.contains("open")));
+      });
+      // Deja abierto el que viene marcado (página actual)
+      mm.querySelectorAll(".mm-acc.open").forEach(acc => setBody(acc, true));
     }
 
     // Reveal on scroll (helper compartido, ver arriba)
