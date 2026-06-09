@@ -319,12 +319,32 @@ footer { background: var(--navy); color: #fff; padding: 72px 0 38px; }
 .badge-247 .dot { width: 9px; height: 9px; background: var(--cyan); border-radius: 50%; animation: pulse 2.4s infinite; }
 @keyframes pulse { 0%,100% { box-shadow: 0 0 0 0 rgba(0,188,212,0.6); } 50% { box-shadow: 0 0 0 8px rgba(0,188,212,0); } }
 .num-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1px; background: var(--line-d); border: 1px solid var(--line-d); }
-.num-card { background: var(--blue); padding: 38px 32px; transition: background 0.3s var(--ease); }
+.num-card { background: var(--blue); padding: 30px 28px; transition: background 0.3s var(--ease); display: flex; flex-direction: column; gap: 22px; }
 .num-card:hover { background: var(--blue-deep); }
-.num-card .lbl { font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.78rem; color: rgba(255,255,255,0.7); display: flex; align-items: center; gap: 9px; margin-bottom: 14px; }
-.num-card .lbl svg { width: 16px; height: 16px; color: var(--cyan); }
-.num-card a { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(1.7rem, 3vw, 2.4rem); letter-spacing: 0.02em; color: #fff; transition: color 0.2s var(--ease); }
-.num-card a:hover { color: var(--cyan); }
+.num-card .adv-id { display: flex; align-items: center; gap: 16px; }
+.num-card .adv-av { flex: none; width: 50px; height: 50px; border-radius: 50%; background: rgba(255,255,255,0.12); display: flex; align-items: center; justify-content: center; color: #fff; }
+.num-card .adv-av svg { width: 26px; height: 26px; }
+.num-card .lbl { font-family: 'Barlow Condensed', sans-serif; text-transform: uppercase; letter-spacing: 0.2em; font-size: 0.74rem; color: rgba(255,255,255,0.7); display: block; margin-bottom: 4px; }
+.num-card .adv-num { font-family: 'Barlow Condensed', sans-serif; font-weight: 800; font-size: clamp(1.5rem, 2.4vw, 1.9rem); letter-spacing: 0.02em; color: #fff; transition: color 0.2s var(--ease); }
+.num-card .adv-num:hover { color: var(--cyan); }
+.num-card .adv-actions { display: flex; gap: 10px; }
+.adv-btn { flex: 1; display: inline-flex; align-items: center; justify-content: center; gap: 8px; padding: 11px 14px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.9rem; transition: background 0.2s var(--ease), color 0.2s var(--ease); }
+.adv-btn svg { width: 17px; height: 17px; }
+.adv-btn.call { border: 1.5px solid rgba(255,255,255,0.5); color: #fff; }
+.adv-btn.call:hover { background: #fff; color: var(--blue); }
+.adv-btn.wa { background: #25D366; color: #fff; }
+.adv-btn.wa:hover { background: #1eb858; }
+.num-note { margin-top: 22px; color: rgba(255,255,255,0.8); font-size: 1rem; display: flex; align-items: center; gap: 10px; }
+.num-note svg { width: 18px; height: 18px; color: var(--cyan); flex: none; }
+
+/* Botón WhatsApp reutilizable (hero) */
+.btn-wa { display: inline-flex; align-items: center; gap: 10px; background: #25D366; color: #fff; padding: 13px 24px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; font-size: 1rem; box-shadow: 0 10px 24px -10px rgba(37,211,102,0.8); transition: background 0.2s var(--ease), transform 0.2s var(--ease), box-shadow 0.2s var(--ease); }
+.btn-wa:hover { background: #1eb858; transform: translateY(-1px); box-shadow: 0 14px 28px -10px rgba(37,211,102,0.9); }
+.btn-wa svg { width: 20px; height: 20px; }
+.home-hero .hero-c-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 12px 18px; }
+.home-hero .hero-call { display: inline-flex; align-items: center; gap: 8px; font-family: 'Barlow Condensed', sans-serif; font-weight: 700; font-size: 1.25rem; color: var(--ink); transition: color 0.2s var(--ease); }
+.home-hero .hero-call svg { width: 18px; height: 18px; color: var(--blue); }
+.home-hero .hero-call:hover { color: var(--blue); }
 
 /* ---------- CTA band (claro) ---------- */
 .cta-split { display: grid; grid-template-columns: 1.2fr auto; gap: 40px; align-items: center; background: var(--surface); border: 1px solid var(--line); border-top: 4px solid var(--blue); padding: 50px 48px; }
