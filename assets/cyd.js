@@ -193,6 +193,24 @@
     // ¿El dispositivo tiene ratón (puede hacer hover) o es táctil?
     const canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
 
+    // En escritorio: mantener el mega-menú abierto mientras el mouse esté
+    // sobre el ítem o su panel; cerrarlo con un pequeño retraso al salir,
+    // para que no se cierre de golpe si el mouse se mueve un poco.
+    if (canHover) {
+      document.querySelectorAll(".nav-item").forEach(item => {
+        if (!item.querySelector(".mega")) return;
+        let closeTimer;
+        item.addEventListener("mouseenter", () => {
+          clearTimeout(closeTimer);
+          document.querySelectorAll(".nav-item.open").forEach(i => { if (i !== item) i.classList.remove("open"); });
+          item.classList.add("open");
+        });
+        item.addEventListener("mouseleave", () => {
+          closeTimer = setTimeout(() => item.classList.remove("open"), 320);
+        });
+      });
+    }
+
     // Mega-menú: abrir con clic/tap en el enlace padre.
     // En escritorio (con ratón) el menú ya se abre solo con hover, así que el
     // clic en "Servicios" navega normal a la página. En táctil el 1.er toque
