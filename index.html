@@ -35,7 +35,7 @@
                 puntuales y disponibles.
               </p>
               <div class="actions reveal" style="transition-delay: 0.18s">
-                <a href="cotizacion.html" class="btn btn-primary"
+                <a href="/cotizacion" class="btn btn-primary"
                   >Solicitar cotización
                   <svg
                     class="arrow"
@@ -46,7 +46,7 @@
                   >
                     <path d="M5 12h14M13 6l6 6-6 6" /></svg
                 ></a>
-                <a href="servicios.html" class="btn btn-ghost">Ver servicios</a>
+                <a href="/servicios" class="btn btn-ghost">Ver servicios</a>
               </div>
               <div class="contacts reveal" style="transition-delay: 0.24s">
                 <svg width="0" height="0" style="position:absolute" aria-hidden="true">
@@ -138,7 +138,7 @@
                 Atención los 7 días, las 24 horas.
               </p>
               <div class="actions">
-                <a href="cotizacion.html" class="btn btn-light"
+                <a href="/cotizacion" class="btn btn-light"
                   >Solicitar cotización
                   <svg
                     class="arrow"
@@ -202,7 +202,7 @@
         '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M13 6l6 6-6 6"/></svg>';
       document.getElementById("cat-grid").innerHTML = window.CYD_CATS.map(
         (c, i) => `
-    <a class="cat-card reveal" href="servicios.html#cat-${c.id}" style="transition-delay:${i * 0.08}s">
+    <a class="cat-card reveal" href="/servicios#cat-${c.id}" style="transition-delay:${i * 0.08}s">
       <div class="ph">
         <span class="num">${c.n}</span>
         <img class="cyd-img" src="${catMeta[c.id].photo}" alt="${c.title}" loading="lazy" decoding="async">

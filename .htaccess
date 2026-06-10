@@ -11,6 +11,31 @@
 </IfModule>
 
 # ===========================================================
+#  URLs limpias - CYD
+#  /index.html      -> /           (pagina de inicio sin nombre)
+#  /pagina.html     -> /pagina     (sin extension .html)
+#  Internamente /pagina sirve el archivo real /pagina.html (con SSI).
+# ===========================================================
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # 1) Quita "index.html" de la URL visible: /index.html -> /
+  RewriteCond %{THE_REQUEST} \s/+index\.html[\s?] [NC]
+  RewriteRule ^ / [R=301,L]
+
+  # 2) Quita ".html" del resto: /pagina.html -> /pagina
+  RewriteCond %{THE_REQUEST} \s/+([^.\s]+)\.html[\s?] [NC]
+  RewriteRule ^ /%1 [R=301,L]
+
+  # 3) Sirve la pagina sin extension desde su .html real
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+  RewriteCond %{DOCUMENT_ROOT}/$1.html -f
+  RewriteRule ^(.+?)/?$ $1.html [L]
+</IfModule>
+
+# ===========================================================
 #  Control de cache - CYD
 #  Las paginas HTML nunca se cachean (siempre ven la version
 #  nueva y sus referencias ?v=). Los assets se cachean fuerte

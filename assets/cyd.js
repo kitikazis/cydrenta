@@ -43,10 +43,10 @@
   window.CYD_CATS = CATS;
 
   const NAV = [
-    { key: "inicio", label: "Inicio", href: "index.html" },
-    { key: "nosotros", label: "Nosotros", href: "nosotros.html" },
-    { key: "servicios", label: "Servicios", href: "servicios.html", mega: true },
-    { key: "contacto", label: "Contacto", href: "contacto.html" },
+    { key: "inicio", label: "Inicio", href: "/" },
+    { key: "nosotros", label: "Nosotros", href: "/nosotros" },
+    { key: "servicios", label: "Servicios", href: "/servicios", mega: true },
+    { key: "contacto", label: "Contacto", href: "/contacto" },
   ];
 
   const page = window.CYD_PAGE || "";
@@ -59,7 +59,7 @@
   /* ---------- Mega-menú markup ---------- */
   function megaHTML() {
     const cats = CATS.map((c, i) => `
-      <a class="mega-cat${i === 0 ? " active" : ""}" data-cat="${c.id}" href="servicios.html#cat-${c.id}">
+      <a class="mega-cat${i === 0 ? " active" : ""}" data-cat="${c.id}" href="/servicios#cat-${c.id}">
         <span class="cn">${c.n}</span>
         <span class="ct">${c.short}</span>
         <svg class="ca" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 6l6 6-6 6"/></svg>
@@ -67,7 +67,7 @@
     const panels = CATS.map((c, i) => `
       <div class="mega-panel${i === 0 ? " active" : ""}" data-panel="${c.id}">
         <h4>${c.title}</h4>
-        ${c.services.map(s => `<a href="servicios.html#${s.id}">${s.name}</a>`).join("")}
+        ${c.services.map(s => `<a href="/servicios#${s.id}">${s.name}</a>`).join("")}
       </div>`).join("");
     return `<div class="mega"><div class="mega-cats">${cats}</div><div class="mega-panels">${panels}</div></div>`;
   }
@@ -83,13 +83,13 @@
     }).join("");
     return `
       <div class="container nav">
-        <a href="index.html" class="logo" aria-label="CYD inicio">
+        <a href="/" class="logo" aria-label="CYD inicio">
           <div class="ticks"><span></span><span></span><span></span></div>
           <div class="logo-stack"><span class="word">CYD</span><span class="tag">Transporte &amp; Alquiler</span></div>
         </a>
         <nav class="nav-links">${links}</nav>
         <div class="nav-cta">
-          <a href="cotizacion.html" class="btn btn-primary">Solicitar cotización</a>
+          <a href="/cotizacion" class="btn btn-primary">Solicitar cotización</a>
           <button class="nav-toggle" id="nav-toggle" aria-label="Menú"><span></span><span></span><span></span></button>
         </div>
       </div>`;
@@ -101,8 +101,8 @@
       const active = n.key === page ? " active" : "";
       if (n.mega) {
         const cats = CATS.map(c => `
-          <a class="mm-cat-head" href="servicios.html#cat-${c.id}">${c.n} · ${c.short}</a>
-          ${c.services.map(s => `<a class="mm-svc" href="servicios.html#${s.id}">${s.name}</a>`).join("")}`).join("");
+          <a class="mm-cat-head" href="/servicios#cat-${c.id}">${c.n} · ${c.short}</a>
+          ${c.services.map(s => `<a class="mm-svc" href="/servicios#${s.id}">${s.name}</a>`).join("")}`).join("");
         const open = n.key === page ? " open" : "";
         return `
           <div class="mm-acc${open}">
@@ -122,7 +122,7 @@
         <a class="btn-wa" href="${waLink(PHONES[0])}" target="_blank" rel="noopener">${waSVG}Escríbete por WhatsApp</a>
         <a class="mm-call" href="${tel(PHONES[0])}">${phoneSVG}Llamar ${PHONES[0]}</a>
       </div>`;
-    return `${groups}<a href="cotizacion.html" class="btn btn-primary">Solicitar cotización</a>${contact}`;
+    return `${groups}<a href="/cotizacion" class="btn btn-primary">Solicitar cotización</a>${contact}`;
   }
 
   /* ---------- Footer ---------- */
@@ -131,26 +131,26 @@
       <div class="container">
         <div class="footer-top">
           <div>
-            <a href="index.html" class="footer-logo" aria-label="CYD inicio">
+            <a href="/" class="footer-logo" aria-label="CYD inicio">
               <img src="assets/cyd-logo.webp" alt="CYD — Transporte y Alquiler de Vehículos" width="230" height="165" loading="lazy" />
             </a>
             <p class="footer-lema"><span class="q">“</span>Comprometidos con la Seguridad y la Confiabilidad Operacional<span class="q">”</span></p>
           </div>
           <div class="footer-col">
             <h5>Navegación</h5>
-            <a href="index.html">Inicio</a>
-            <a href="nosotros.html">Nosotros</a>
-            <a href="servicios.html">Servicios</a>
-            <a href="contacto.html">Contacto</a>
-            <a href="cotizacion.html">Solicitar cotización</a>
+            <a href="/">Inicio</a>
+            <a href="/nosotros">Nosotros</a>
+            <a href="/servicios">Servicios</a>
+            <a href="/contacto">Contacto</a>
+            <a href="/cotizacion">Solicitar cotización</a>
           </div>
           <div class="footer-col">
             <h5>Servicios</h5>
-            <a href="servicios.html#ejecutivo">Transporte Ejecutivo</a>
-            <a href="servicios.html#proyectos">Traslado a Proyectos</a>
-            <a href="servicios.html#camionetas">Alquiler de Camionetas</a>
-            <a href="servicios.html#buses">Alquiler de Minibuses</a>
-            <a href="servicios.html#autos">Alquiler de Autos</a>
+            <a href="/servicios#ejecutivo">Transporte Ejecutivo</a>
+            <a href="/servicios#proyectos">Traslado a Proyectos</a>
+            <a href="/servicios#camionetas">Alquiler de Camionetas</a>
+            <a href="/servicios#buses">Alquiler de Minibuses</a>
+            <a href="/servicios#autos">Alquiler de Autos</a>
           </div>
           <div class="footer-col">
             <h5>Contacto · 24/7</h5>
@@ -167,7 +167,7 @@
 
   /* ---------- Reveal on scroll (reutilizable) ----------
      Animación de aparición. Reutilizable desde las páginas que inyectan
-     contenido con JS (p.ej. servicios.html) vía window.CYD.observeReveals(scope).
+     contenido con JS (p.ej. /servicios) vía window.CYD.observeReveals(scope).
      Red de seguridad: si el contexto no pinta (pestaña oculta), fuerza el estado final. */
   let revealIO = null;
   const revealAll = (scope) => (scope || document).querySelectorAll(".reveal:not(.in)").forEach(el => {
