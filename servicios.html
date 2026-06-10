@@ -36,7 +36,7 @@
 <div id="cat-sections"></div>
 
 <!-- CTA -->
-<section class="cta-band" style="--band-img:url('https://images.unsplash.com/photo-1755717706420-83d338718475?w=1600&q=80&auto=format&fit=crop')">
+<section class="cta-band" style="--band-img:url('uploads/band-cta.webp')">
   <div class="container">
     <div class="cta-band-inner reveal">
       <div class="cta-band-copy">
@@ -77,37 +77,37 @@
   const DET = {
     ejecutivo: {
       icon: "executive",
-      photo: "https://images.unsplash.com/photo-1628487749130-2d41acb1802a?w=900&q=80&auto=format&fit=crop",
+      photo: "uploads/hero-mina.webp",
       desc: "Servicio de traslado seguro, puntual y eficiente para personal operativo, administrativo y ejecutivo, adaptado a los requerimientos de cada cliente y operación.",
       tags: ["Personal ejecutivo", "Puntualidad", "Rutas a medida"],
     },
     proyectos: {
       icon: "site",
-      photo: "https://images.unsplash.com/photo-1711012604128-8339024a3e12?w=900&q=80&auto=format&fit=crop",
+      photo: "uploads/band-flota.webp",
       desc: "Brindamos servicios de transporte hacia distintas zonas operativas y proyectos industriales, garantizando comodidad, seguridad y continuidad en cada traslado.",
       tags: ["Zonas operativas", "Proyectos industriales", "Continuidad"],
     },
     camionetas: {
       icon: "pickup",
-      photo: "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=900&q=80&auto=format&fit=crop",
+      photo: "uploads/cat-alquiler.webp",
       desc: "Contamos con camionetas abiertas y cerradas, equipadas y en óptimas condiciones para diferentes tipos de operaciones y necesidades empresariales.",
       tags: ["Abiertas y cerradas", "Equipadas", "Óptimas condiciones"],
     },
     buses: {
       icon: "bus",
-      photo: "https://images.unsplash.com/photo-1534011056808-50c1c6082fe7?w=900&q=80&auto=format&fit=crop",
+      photo: "uploads/svc-buses.webp",
       desc: "Servicio de alquiler de minibuses para el traslado de personal a faenas mineras e industriales, con comodidad, capacidad y altos estándares de seguridad.",
       tags: ["Traslado de personal", "Faena minera", "Seguridad"],
     },
     autos: {
       icon: "car",
-      photo: "https://images.unsplash.com/photo-1552519507-da3b142c6e3d?w=900&q=80&auto=format&fit=crop",
+      photo: "uploads/svc-autos.webp",
       desc: "Disponemos de vehículos modernos para servicios corporativos, ejecutivos y de movilidad empresarial, con opciones adaptadas a cada necesidad.",
       tags: ["Vehículos modernos", "Corporativo", "A medida"],
     },
     movilidad: {
       icon: "mobility",
-      photo: "https://images.unsplash.com/photo-1553413077-190dd305871c?w=900&q=80&auto=format&fit=crop",
+      photo: "uploads/cat-soluciones.webp",
       desc: "Ofrecemos servicios personalizados de transporte y alquiler vehicular, orientados a brindar eficiencia, confianza y soporte operativo a nuestros clientes.",
       tags: ["Personalizado", "Eficiencia", "Soporte operativo"],
     },
@@ -146,7 +146,7 @@
           ${c.services.map((s, i) => `
             <article class="svc-item reveal" id="${s.id}" style="transition-delay:${(i % 2) * 0.08}s">
               <div class="ph">
-                <image-slot id="svc-${s.id}" shape="rect" fit="cover" src="${DET[s.id].photo}" placeholder="Foto ${s.name}"></image-slot>
+                <img class="cyd-img" src="${DET[s.id].photo}" alt="${s.name}" loading="lazy" decoding="async">
               </div>
               <div class="body">
                 <div class="ic">${ic[DET[s.id].icon]}</div>

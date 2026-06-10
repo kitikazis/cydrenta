@@ -4,6 +4,13 @@
     <!--#set var="page_title" value="CYD — Transporte y Alquiler de Vehículos" -->
     <!--#set var="page_desc" value="CYD — Transporte de personal y alquiler de minibuses y vehículos para los sectores minero, industrial y ejecutivo. Disponibilidad 24/7." -->
     <!--#include virtual="partials/head.html" -->
+    <!-- Descubre la imagen del hero (LCP) lo antes posible, sin esperar al CSS/JS -->
+    <link
+      rel="preload"
+      as="image"
+      fetchpriority="high"
+      href="uploads/hero-mina.webp"
+    />
   </head>
   <body>
     <header id="site-header"></header>
@@ -62,14 +69,15 @@
               <div class="speedlines">
                 <span></span><span></span><span></span>
               </div>
-              <image-slot
+              <img
                 id="home-hero"
+                class="cyd-img"
                 style="height: 480px"
-                shape="rect"
-                fit="cover"
-                src="https://images.unsplash.com/photo-1628487749130-2d41acb1802a?w=1100&q=80&auto=format&fit=crop"
-                placeholder="Arrastra una foto de tu operación"
-              ></image-slot>
+                src="uploads/hero-mina.webp"
+                alt="Transporte de personal CYD en operación minera"
+                fetchpriority="high"
+                decoding="async"
+              />
               <div class="media-tag">
                 <span class="dot"></span>Operación minera · 24/7
               </div>
@@ -100,7 +108,7 @@
         class="band-navy section-pad"
         id="porque"
         style="
-          --band-img: url(&quot;https://images.unsplash.com/photo-1711012604128-8339024a3e12?w=1600&q=80&auto=format&fit=crop&quot;);
+          --band-img: url(&quot;uploads/band-flota.webp&quot;);
         "
       >
         <div class="container">
@@ -117,7 +125,7 @@
       <section
         class="cta-band"
         style="
-          --band-img: url(&quot;https://images.unsplash.com/photo-1755717706420-83d338718475?w=1600&q=80&auto=format&fit=crop&quot;);
+          --band-img: url(&quot;uploads/band-cta.webp&quot;);
         "
       >
         <div class="container">
@@ -176,17 +184,17 @@
       const catMeta = {
         transporte: {
           photo:
-            "https://images.unsplash.com/photo-1535655685871-dc8158ff167e?w=900&q=80&auto=format&fit=crop",
+            "uploads/cat-transporte.webp",
           desc: "Trasladamos a tu personal hacia la faena de forma segura, puntual y continua.",
         },
         alquiler: {
           photo:
-            "https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?w=900&q=80&auto=format&fit=crop",
+            "uploads/cat-alquiler.webp",
           desc: "Alquiler de minibuses y unidades en óptimas condiciones para que tu operación opere a su conveniencia.",
         },
         soluciones: {
           photo:
-            "https://images.unsplash.com/photo-1553413077-190dd305871c?w=900&q=80&auto=format&fit=crop",
+            "uploads/cat-soluciones.webp",
           desc: "Consultoría logística que combina transporte y flota en un servicio personalizado de extremo a extremo.",
         },
       };
@@ -197,7 +205,7 @@
     <a class="cat-card reveal" href="servicios.html#cat-${c.id}" style="transition-delay:${i * 0.08}s">
       <div class="ph">
         <span class="num">${c.n}</span>
-        <image-slot id="cat-${c.id}" style="height:220px" shape="rect" fit="cover" src="${catMeta[c.id].photo}" placeholder="Foto ${c.short}"></image-slot>
+        <img class="cyd-img" src="${catMeta[c.id].photo}" alt="${c.title}" loading="lazy" decoding="async">
       </div>
       <div class="body">
         <h3>${c.title}</h3>

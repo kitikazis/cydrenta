@@ -618,6 +618,13 @@
       // the display:flex / display:block rules in the stylesheet above.
       if (url) {
         if (this._img.getAttribute('src') !== url) {
+          // Carga diferida por defecto (lazy); la imagen del hero usa eager
+          // para no retrasar el LCP. decoding async no bloquea el render.
+          const loadMode = this.hasAttribute('eager') ? 'eager' : 'lazy';
+          this._img.loading = loadMode;
+          this._img.decoding = 'async';
+          this._ghost.loading = loadMode;
+          this._ghost.decoding = 'async';
           this._img.src = url;
           this._ghost.src = url;
         }

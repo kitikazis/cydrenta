@@ -132,7 +132,7 @@
         <div class="footer-top">
           <div>
             <a href="index.html" class="footer-logo" aria-label="CYD inicio">
-              <img src="assets/cyd-logo.png" alt="CYD — Transporte y Alquiler de Vehículos" />
+              <img src="assets/cyd-logo.webp" alt="CYD — Transporte y Alquiler de Vehículos" width="230" height="165" loading="lazy" />
             </a>
             <p class="footer-lema"><span class="q">“</span>Comprometidos con la Seguridad y la Confiabilidad Operacional<span class="q">”</span></p>
           </div>
@@ -159,7 +159,7 @@
           </div>
         </div>
         <div class="footer-bottom">
-          <span>© 2025 CYD — Transporte y Alquiler de Vehículos. Todos los derechos reservados.</span>
+          <span>© 2026 CYD — Transporte y Alquiler de Vehículos. Todos los derechos reservados.</span>
           <span>Movilidad Minera, Industrial y Ejecutiva</span>
         </div>
       </div>`;
