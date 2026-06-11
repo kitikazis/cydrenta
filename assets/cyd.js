@@ -128,13 +128,15 @@
   /* ---------- Footer ---------- */
   function footerHTML() {
     return `
+      <div class="footer-accent" aria-hidden="true"><span></span><span></span><span></span></div>
       <div class="container">
         <div class="footer-top">
-          <div>
+          <div class="footer-brand">
             <a href="/" class="footer-logo" aria-label="CYD inicio">
               <img src="assets/cyd-logo.webp" alt="CYD — Transporte y Alquiler de Vehículos" width="230" height="165" loading="lazy" />
             </a>
             <p class="footer-lema"><span class="q">“</span>Comprometidos con la Seguridad y la Confiabilidad Operacional<span class="q">”</span></p>
+            <a class="footer-wa btn-wa" href="${waLink(PHONES[0])}" target="_blank" rel="noopener">${waSVG}Escríbenos por WhatsApp</a>
           </div>
           <div class="footer-col">
             <h5>Navegación</h5>
@@ -152,10 +154,12 @@
             <a href="/servicios#buses">Alquiler de Minibuses</a>
             <a href="/servicios#autos">Alquiler de Autos</a>
           </div>
-          <div class="footer-col">
-            <h5>Contacto · 24/7</h5>
-            ${PHONES.map(p => `<a href="${tel(p)}">${p}</a>`).join("")}
-            <p style="margin-top:14px;color:rgba(255,255,255,0.5)">Atención los 7 días, las 24 horas.</p>
+          <div class="footer-col footer-contact">
+            <h5>Contacto</h5>
+            <span class="footer-status"><span class="dot"></span>Atención 24/7 · los 365 días</span>
+            <div class="footer-phones">
+              ${PHONES.map(p => `<a href="${tel(p)}">${phoneSVG}<span>${p}</span></a>`).join("")}
+            </div>
           </div>
         </div>
         <div class="footer-bottom">
